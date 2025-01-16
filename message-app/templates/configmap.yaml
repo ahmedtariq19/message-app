@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: message-app-config
+  data:
+    config.yaml: |
+      database:
+        url: "postgres://{{ .Values.database.user }}:{{ .Values.database.password }}@db-service:5432/{{ .Values.database.name }}"
+      rabbitmq:
+        url: "amqp://{{ .Values.rabbitmq.user }}:{{ .Values.rabbitmq.password }}@rabbitmq-service:5672/"

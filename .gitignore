@@ -1,0 +1,6 @@
+conf.json
+.vscode/
+cover.html
+*.out
+log/
+.env

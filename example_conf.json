@@ -1,0 +1,33 @@
+{
+	"dataSource": {
+		"addr": "127.0.0.1",
+		"port": "5432",
+		"database": "",
+		"user": "",
+		"password": "",
+		"enableAutoMigrate": true,
+		"sslMode": "",
+		"retries": 3,
+		"mode": 0
+	},
+	"jwtSecret": "",
+	"env": "development",
+	"logger":{
+		"path": "",
+		"level": "",
+		"name": "",
+		"mode": ""
+	},
+	"projectInfo": {
+		"name": "Message-app",
+		"domain": "https://Message-app.com"
+	},
+	"rest": {
+		"addr": ":8002"
+	},
+	"rabbitmq": {
+		"host": "127.0.0.1",
+		"port":""
+	},
+	"password":"test"
+}
