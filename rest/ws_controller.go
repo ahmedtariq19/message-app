@@ -60,46 +60,6 @@ func (p *websocketController) Handler() func(w http.ResponseWriter, r *http.Requ
 		go p.consumer.Consume(models.WebsocketQueue, messageChan, done)
 		go p.writeToSocket(conn, messageChan, done)
 
-		// for {
-		// 	_, message, err := conn.ReadMessage()
-		// 	if err != nil {
-		// 		if websocket.IsCloseError(err, websocket.CloseNormalClosure, websocket.CloseGoingAway) {
-		// 			log.Println("WebSocket connection closed by client.")
-		// 			return
-		// 		}
-
-		// 		if ne, ok := err.(net.Error); ok && ne.Timeout() {
-		// 			log.Println("Read timeout, connection might be idle.")
-		// 			continue
-		// 		}
-
-		// 		log.Println("Error reading message:", err)
-		// 		return
-		// 	}
-
-		// 	if err := p.producer.Publish(models.WebsocketQueue, string(message)); err != nil {
-		// 		log.Println("Error publishing message:", err)
-		// 		continue
-		// 	}
-		// msg := <-messageChan
-		// var m string
-		// if err := json.Unmarshal([]byte(msg), &m); err != nil {
-		// 	log.Println("Error unmarshalling message:", err)
-		// 	continue
-		// }
-
-		// if err := p.messageService.CreateMessage(&models.CreateMessageReq{
-		// 	Content: m,
-		// }); err != nil {
-		// 	log.Println("Error creating message:", err)
-		// 	continue
-		// }
-
-		// log.Printf("Received and processed message: %s", msg)
-		// if err := conn.WriteMessage(messageType, []byte(msg)); err != nil {
-		// 	log.Println("Error writing message:", err)
-		// }
-		// }
 		select {}
 	}
 }
